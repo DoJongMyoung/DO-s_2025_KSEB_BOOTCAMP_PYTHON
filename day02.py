@@ -1,21 +1,26 @@
-#prime number check program
-#import math
+def is_prime(num) -> bool:
+    """
+    A function that returns True if it is a prime number and False if it is not a prime number
+    :param num: integer number
+    :return: boolean type
+    """
+    if num >= 2:
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                return False
+                #is_prime = False
+                #break
+            #print(i, end=' ')
+    else:
+        return False
+    return True
 
+# main
+#help(abs)
+help(is_prime)
 n = int(input("Input number : "))
-#print(int(15**0.5))
 
-is_prime = True
-i = 2
-if n >= 2:
-    for i in range (2,int(n**0.5)+1): #소수가 아니면 짝을 이루므로 제곱근과 비교해도 괜찮음.
-        if n % i == 0 :
-            is_prime = False
-            break
-            #print(i , end=' ') #몇번 실행되는지 확인하는 코드
-else:
-     is_prime = False
-
-if is_prime:
+if is_prime(n):  # function call
     print(f"{n} is prime number")
-else :
-    print(f"{n} is not prime number")
+else:
+    print(f"{n} is NOT prime number!")
