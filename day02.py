@@ -1,9 +1,18 @@
-#dan = input("Input dan : ") #이리하면 오류발생
-dan =  int(input("Input dan : "))
-for i in range(1,10,1):
-    print(f"{dan}*{i}={dan * i}")
+#prime number check program
+n = int(input("Input number : "))
 
+is_prime = True
 
-# for dan in range(2, 10, 1): #python은 들여쓰기 중요함, 끝나는 숫자는 10-1인 9
-#     for i in range(1, 10, 1):
-#         print(f"{dan} * {i} = {dan * i}")
+if n >= 2:
+    count = 0
+    for i in range (2 , n):
+        if n % i == 0 :
+            is_prime = False
+            break
+else:
+     is_prime = False
+
+if is_prime:
+    print(f"{n} is prime number")
+else :
+    print(f"{n} is not prime number")
