@@ -1,4 +1,4 @@
-def my_pow(b,e) -> float:
+    def my_pow(b,e) -> float:
     """
 A user-defined function that receives a base and exponent and returns the power result in the form of a real number    :param b:
     :param b: base number
