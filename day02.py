@@ -1,46 +1,61 @@
-#dic을 빼고 list로만 동작되게 만들어라 .
+# Assignment Day 02
+# v1.4) Make my_pow custom function instead of ** operator, power function and make it work.
+import math
 
-import random
 
-drinks = ["위스키", "와인", "소주", "고량주" ]
-foods = ["초콜릿", "치즈", "삽겹살", "양꼬치"]
+def my_pow(b, e) -> float:
+    """
+    A user-defined function that receives a base and exponent and returns the power result in the form of a real number
+    :param b: base number
+    :param e: exponent
+    :return: the power result in the form of a real number
+    """
+    if e < 0:
+        b = 1 / b
+        e = e * -1
 
-# print(drinks_foods)
-# print(drinks_foods.pop("고량주"))
-# print(drinks_foods)
+    result = 1
 
-#del drinks_foods["위스키"]
-#drinks_foods["사케"] = "광어회"
-drinks.append("사케")
-drinks.append("위스키")
+    i = int(e)
+    f = e - i
 
-foods.append("광어회")
-foods.append("낙곱새")
-#drink = input(drinks_foods.keys())
-#drinks_foods_keys = list(drinks_foods)
-# print(drinks_foods_keys)
-# #print(drinks_foods_keys.pop(0))
-# print(drinks_foods_keys.remove("위스키"))
-# print(drinks_foods_keys)
-#print(random.choice(drinks_foods_keys))
+    for _ in range(i):  # for k in range(e):
+        result = result * b
 
-while True:
-    menu = input(f'다음 술중에 고르세요.\n1) {drinks[0]}   2) {drinks[1]}   3) {drinks[2]}   4) {drinks[3]}   5) {drinks[4]}  6) {drinks[5]}   7) 아무거나   8) 종료 : ')
-    if menu == '1':
-        print(f'{drinks[0]}에 어울리는 안주는 {foods[0]} 입니다')
-    elif menu == '2':
-        print(f'{drinks[1]}에 어울리는 안주는 {foods[1]} 입니다')
-    elif menu == '3':
-        print(f'{drinks[2]}에 어울리는 안주는 {foods[2]} 입니다')
-    elif menu == '4':
-        print(f'{drinks[3]}에 어울리는 안주는 {foods[3]} 입니다')
-    elif menu == '5':
-        print(f'{drinks[4]}에 어울리는 안주는 {foods[4]} 입니다')
-    elif menu == '6':
-        print(f'{drinks[5]}에 어울리는 안주는 {foods[5]} 입니다')
-    elif menu == '7':
-        random_index = random.randint(0,5)
-        print(f'{drinks[random_index]}에 어울리는 안주는 {foods[random_index]} 입니다')
-    elif menu == '8':
-        print(f'다음에 또 오세요')
-        break
+    if f > 0:
+        result = result * math.exp(f * math.log(b))
+
+    return result
+
+
+def is_prime(num) -> bool:
+    """
+    A function that returns True if it is a prime number and False if it is not a prime number
+    :param num: integer number
+    :return: boolean type
+    """
+    if num >= 2:
+        i = 2
+        while i < (int(my_pow(num, 0.5)) + 1):
+        #while i*i < num+1:
+            if num % i == 0:
+                return False
+            i = i + 1
+    else:
+        return False
+    return True
+
+
+#print(my_pow(2, 9))
+numbers = input("Input number : ").split()  # ex) 900 1000
+n1 = int(numbers[0])
+n2 = int(numbers[1])
+
+if n1 > n2:
+    n1, n2 = n2, n1
+
+j = n1
+while j <= n2:
+    if is_prime(j):
+        print(j, end=' ')
+    j = j + 1
