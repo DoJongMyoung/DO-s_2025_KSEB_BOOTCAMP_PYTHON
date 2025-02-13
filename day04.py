@@ -13,21 +13,21 @@ def time_decorator(func):
         return r
     return wrapper
 
-def des_decorator(f):  # closure
-    def inner(*args):
-        print(f"함수 이름 : {f.__name__}") #매직 키워드 : __기호있는 녀석들
-        print(f"함수 설명 : {f.__doc__}") #실행되는 함수의 이름(__name__)과 설명(__doc__)을 출력함
-        r = f(*args)
+def des_decorator(func):  # closure
+    def wrapper(*args):
+        print(f"함수 이름 : {func.__name__}") #매직 키워드 : __기호있는 녀석들
+        print(f"함수 설명 : {func.__doc__}") #실행되는 함수의 이름(__name__)과 설명(__doc__)을 출력함
+        r = func(*args)
         return r
 
-    return inner
+    return wrapper #함수 호출이 아닌 주소를 전달하는 return
 
 
 
 @time_decorator #데코레이터를 주석처리함으로써 time_decorator를 사용 안함.
 @des_decorator
 def factorial_repetition(n) -> int:
-    """팩토리얼 함수"""
+    """factorial function by loop"""
     result = 1
     for i in range(2, n+1):
         result = result * i
