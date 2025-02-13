@@ -24,8 +24,8 @@ def des_decorator(func):  # closure
 
 
 
-@time_decorator #데코레이터를 주석처리함으로써 time_decorator를 사용 안함.
-@des_decorator
+# @time_decorator
+# @des_decorator
 def factorial_repetition(n) -> int:
     """factorial function by loop"""
     result = 1
@@ -34,8 +34,8 @@ def factorial_repetition(n) -> int:
     return result
 
 number = int(input())
-# ft = time_decorator(factorial_repetition) # 이름만 넣으면 주소를 호출 . 즉 time_decorator에 인수로 factorial_repetiton의 주소를 넣어줌.
-print(f"{number}! = {factorial_repetition(number)}")
+t = des_decorator(time_decorator(factorial_repetition)) # 이름만 넣으면 주소를 호출 . 즉 time_decorator에 인수로 factorial_repetiton의 주소를 넣어줌.
+print(f"{number}! = {t(number)}")
 
 # number = int(input())
 # print(f"{number}! = {factorial_repetition(number)}")
