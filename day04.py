@@ -11,8 +11,7 @@ def time_decorator(func):
         return r
     return wrapper
 
-
-@time_decorator
+# @time_decorator #데코레이터를 주석처리함으로써 time_decorator를 사용 안함.
 def factorial_repetition(n) -> int:
     result = 1
     for i in range(2, n+1):
@@ -20,8 +19,9 @@ def factorial_repetition(n) -> int:
     return result
 
 number = int(input())
-s = time.time()
+ft = time_decorator(factorial_repetition) # 이름만 넣으면 주소를 호출 . 즉 time_decorator에 인수로 factorial_repetiton의 주소를 넣어줌.
+print(f"{number}! = {ft(number)}")
+
+number = int(input())
 print(f"{number}! = {factorial_repetition(number)}")
-e = time.time()
-print(e-s)
 
