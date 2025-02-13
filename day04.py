@@ -1,5 +1,7 @@
 #SOLID
 #open closed principle : 개방 폐쇄 원칙 (확장에는 열려있고 수정에는 닫혀있는 원칙)
+import time
+
 
 def factorial_repetition(n) -> int:
     result = 1
@@ -8,6 +10,8 @@ def factorial_repetition(n) -> int:
     return result
 
 number = int(input())
+s = time.time()
 print(f"{number}! = {factorial_repetition(number)}")
-
+e = time.time()
+print(e-s)
 
