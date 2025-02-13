@@ -71,10 +71,12 @@ import random
 def print_menu(n):
     print(f'{drinks[n]}에 어울리는 안주는 {foods[n]} 입니다')
 
+# d_s_p = {"위스키" : ["초콜릿" , 50_000]}
+# print(d_s_p["위스키"][0])
 
 drinks = ["위스키", "와인", "소주", "고량주" ]
 foods = ["초콜릿", "치즈", "삽겹살", "양꼬치"]
-
+prices = [50000, 30000, 5000, 7500]
 # print(drinks_foods)
 # print(drinks_foods.pop("고량주"))
 # print(drinks_foods)
@@ -83,6 +85,9 @@ foods = ["초콜릿", "치즈", "삽겹살", "양꼬치"]
 #drinks_foods["사케"] = "광어회"
 drinks.append("사케")
 drinks.append("위스키")
+
+prices.append(25000)
+prices.append(35000)
 
 foods.append("광어회")
 foods.append("낙곱새")
