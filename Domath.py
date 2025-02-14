@@ -35,3 +35,6 @@ def fibonacci_recursion(n) -> int:
         return fibonacci_recursion(n-2) + fibonacci_recursion(n-1)
 
 # print(fibonacci_recursion(int(input())))
+
+if __name__ != "__main__": #__main__은 현재 실행시키는 파일을 의미
+    print("Domath.py를 실행 하셨습니다.")
